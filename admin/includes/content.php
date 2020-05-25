@@ -19,7 +19,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Users
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count($aantalUsers); ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo User::count_all(); ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -38,7 +38,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Photos
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count($aantalPhotos); ?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo Photo::count_all(); ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-camera-retro fa-2x text-gray-300"></i>
@@ -70,6 +70,11 @@
         </div>
     </div>
 
+    <!-- Content Row -->
+
+    <div class="row">
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+    </div>
 
 </div>
 <!-- /.container-fluid -->

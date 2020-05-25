@@ -25,7 +25,7 @@ class Db_object
     }
 
     // Query
-    protected static function find_this_query($sql) {
+    public static function find_this_query($sql) {
         global $database;
 
         $result = $database->query($sql);
@@ -45,7 +45,7 @@ class Db_object
 
     // Find by id in table
     public static function find_by_id($id) {
-        $result = static::find_this_query("SELECT * FROM " . static::$db_table . " WHERE id = $id LIMIT 1");
+        $result = static::find_this_query("SELECT * FROM " . static::$db_table . " WHERE id = id LIMIT 1");
 
         /*if (!empty($result)) {
             return array_shift($result);
@@ -131,5 +131,14 @@ class Db_object
         }
 
         return $clean_properties;
+    }
+
+    public static function count_all(){
+        global $database;
+        $sql = "SELECT COUNT(*) FROM " . static::$db_table;
+        $result_set = $database->query($sql);
+        $row = mysqli_fetch_array($result_set);
+
+        return array_shift($row);
     }
 }
